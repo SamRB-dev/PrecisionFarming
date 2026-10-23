@@ -2,6 +2,11 @@
 
 This directory documents how the project data are organized. The assigned field-image recordings may be held in the course-designated storage location rather than committed to Git.
 
+## Dataset 
+
+[Link](https://hshl.sciebo.de/s/g2QCsQzRqABPYmd)
+
+
 ## Expected dataset artifacts
 
 The final location and naming convention should be agreed by the team and recorded here when known.
