@@ -2,16 +2,6 @@
 
 This directory documents how the project data are organized. The assigned field-image recordings may be held in the course-designated storage location rather than committed to Git.
 
-## Data handling
-
-- Follow the instructor's rules for access, sharing, and storage.
-- Do not upload restricted source images, annotation files, or derived data to this repository unless the course explicitly permits it.
-- Keep original recordings unchanged.
-- Use stable image IDs and record the source recording/path in the manifest.
-- Record missing metadata as unknown rather than guessing.
-- If images are cropped into tiles, preserve the parent image ID and crop coordinates.
-- Keep image files and their masks paired by a consistent identifier.
-
 ## Expected dataset artifacts
 
 The final location and naming convention should be agreed by the team and recorded here when known.
