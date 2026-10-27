@@ -1,6 +1,6 @@
 # Precision Farming - Autonomous Systems B
 
-Repository for the **Autonomous Systems B (ASB)** precision-farming project. The current work focuses on Task 1: gathering and preparing field images, defining a consistent semantic-segmentation annotation protocol, reviewing annotations, and validating a documented dataset release.
+Repository for the **Autonomous Systems B (ASB)** precision-farming project. 
 
 
 
@@ -8,9 +8,9 @@ Repository for the **Autonomous Systems B (ASB)** precision-farming project. The
 
 | Path | Purpose |
 | --- | --- |
-| `data/` | Data-location instructions and dataset organization notes. Follow course rules for restricted files; do not commit source images or annotations unless explicitly permitted. |
-| `documentation/` | Annotation protocol, dataset description, findings, validation evidence, and task log. |
-| `notebooks/` | Course notebook and reproducible exploratory or analysis notebooks. |
+| `data/` | Contains the dataset and related files. |
+| `documentation/` | Annotation protocol, dataset description, findings, validation evidence, resources, and task log. |
+| `notebooks/` | Jupyter notebooks. |
 | `LICENSE` | Repository license information. |
 
 ## Task tracking

@@ -1,6 +1,6 @@
 # Documentation
 
-This directory contains the scientific and practical documentation for the Precision Farming project.
+This directory contains the documentation and resources for the Precision Farming project.
 
 
 ## Task log
