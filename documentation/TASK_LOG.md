@@ -9,9 +9,4 @@ Use this table to track work for Task 1. **Date** is the date the task was logge
 Sadim Rahman Badhan | Task 1, Work package A | 2026-10-27 |  2026-10-29
 Efty | | | 
 
-## Updating the log
 
-- Use ISO dates: `YYYY-MM-DD`.
-- Replace “Set by team” with a specific agreed deadline when the team assigns one.
-- Enter the actual date in **When finished** only after the deliverable has been checked.
-- If a task is blocked or delayed, add a short note below the table or link to a relevant issue.
