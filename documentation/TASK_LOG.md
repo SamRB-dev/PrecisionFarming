@@ -4,9 +4,10 @@ Use this table to track work for Task 1. **Date** is the date the task was logge
 
 **Task 1 official deadline:** 2026-10-29 (end of business), according to the ASB lab instructions.
 
-| Name (task) | Date | Deadline | When finished |
+| Name  | Task | Date | Deadline |
 |---|---|---|---|
-
+Sadim Rahman Badhan |  | 2026-10-29 |  
+Efty | | | 
 
 ## Updating the log
 
