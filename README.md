@@ -17,6 +17,9 @@ Repository for the **Autonomous Systems B (ASB)** precision-farming project.
 
 See [the Task Log](documentation/TASK_LOG.md) for task owners, dates, deadlines, and completion dates.
 
+## Contribution
+
+See [contribution.md](contribution.md) for instructions on how to contribute to this repository.
 
 ## Current status
 
