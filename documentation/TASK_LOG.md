@@ -6,7 +6,7 @@ Use this table to track work for Task 1. **Date** is the date the task was logge
 
 | Name  | Task | Date | Deadline |
 |---|---|---|---|
-Sadim Rahman Badhan | Task 1, Work package A | 2026-10-27 |  2026-10-29
+Sadim Rahman Badhan | Task 1, Work package A (sampling, writing observations and manifest) | 2026-10-27 |  2026-10-29
 Efty | | | 
 
 
