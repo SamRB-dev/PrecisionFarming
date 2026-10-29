@@ -1,6 +1,6 @@
 # Will Contain the common collection of images annotated by our teammates.
 
-## Color Annotation Configuration
+## Color Annotation Configuration for CVAT
 ```json
 [
   {
