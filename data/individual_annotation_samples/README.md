@@ -2,7 +2,7 @@
 
 ## Structure
 
-ex
+Example:
 
 DJI_0101
 - original
