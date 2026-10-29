@@ -1,0 +1,1 @@
+# Will Contain the common collection of images annotated by our teammates.
