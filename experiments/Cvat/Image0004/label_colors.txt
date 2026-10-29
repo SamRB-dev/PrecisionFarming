@@ -1,0 +1,3 @@
+192 64 224 Ignore
+102 255 102 Sugar beet
+255 53 94 Weed
