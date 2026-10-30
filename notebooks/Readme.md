@@ -1,19 +1,22 @@
 # Notebooks
 
-Store the course-provided notebook and project analysis notebooks here.
+Jupyter notebooks used for course work, data inspection, and reproducible analysis.
 
-## Suggested contents
+## Contents
 
-- `ASB_lab_ADAS_01.ipynb` — course assignment notebook and scientific record for Task 1.
-- Additional notebooks, if needed, for image inspection, manifest checks, mask validation, IoU calculation, or visualization.
+| File | Purpose |
+| --- | --- |
+| `ASB_lab_ADAS_01-updated.ipynb` | Updated course notebook containing the assignment structure and the team's scientific record for ADAS Lab 01. |
+
+Add further notebooks only when a separate, reproducible analysis is useful (for example, image inspection, manifest checks, mask validation, or metric visualisation).
 
 ## Notebook guidelines
 
-- Preserve the instructor-provided requirements and terminology.
-- Add code only where it supports reproducible inspection, quantitative analysis, validation, or visualization.
-- Keep paths configurable rather than hard-coding a single machine's local directory.
-- Do not commit restricted images or annotations into notebook outputs.
-- Clear unnecessary outputs before committing if they expose restricted data or make the notebook excessively large.
-- Explain each analysis step and distinguish actual results from examples or planned work.
+- Preserve course requirements and terminology.
+- Explain the purpose of each analysis cell and distinguish measured results from examples or plans.
+- Keep paths configurable instead of relying on one machine's local directory.
+- Record relevant package/tool versions when they affect reproducibility.
+- Avoid committing unnecessary output, restricted images, or large embedded artefacts.
+- Keep the notebook and any external scripts/data references consistent.
 
-If the original course notebook is stored elsewhere, document its location and do not create a misleading duplicate.
+Run notebooks from the repository root unless the notebook explicitly documents another working directory.
