@@ -1,21 +1,21 @@
 # Shared Annotation Samples
 
-This directory contains annotation ZIP exports for images annotated by two team members. The current sets are grouped by annotator list.
+This directory contains annotation ZIP exports for images annotated by two team members. The exports are grouped by annotator list.
 
 ## Contents
 
 | Path | Contents |
 | --- | --- |
 | `annot_list_1/` | Annotation ZIP files for the shared image IDs. |
-| `annot_list_2/` | The corresponding annotation ZIP files from the second annotation set. |
+| `annot_list_2/` | Corresponding annotation ZIP files from the second annotation set. |
 
 The image IDs currently represented in both lists are `DJI_0000`, `DJI_0004`, `DJI_0005`, `DJI_0008`, `DJI_0012`, `DJI_0021`, `DJI_0026`, `DJI_0030`, and `DJI_0033`.
 
-## CVAT label colour configuration
+## CVAT label colours
 
-Use the following label names and colours when configuring the corresponding CVAT project. The colour values are the current class display colours; they are not, by themselves, a complete pixel-mask encoding specification.
+The following are the current class display colours. They are not, by themselves, a complete pixel-mask encoding specification.
 
-| Label | Display colour | Intended use |
+| Label | Display colour | Intended class |
 | --- | --- | --- |
 | Sugar beet | `#194d1c` | Sugar beet crop |
 | Weed | `#fa3253` | Weed vegetation |
@@ -28,5 +28,3 @@ Use the following label names and colours when configuring the corresponding CVA
   { "name": "ignore", "color": "#733380", "type": "any", "attributes": [] }
 ]
 ```
-
-Retain each export with its source image ID and annotator-list directory so that comparisons remain traceable.
