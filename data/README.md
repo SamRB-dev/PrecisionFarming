@@ -1,15 +1,23 @@
 # Data
 
-This directory documents how the project data are organized. The assigned field-image recordings may be held in the course-designated storage location rather than committed to Git.
+This directory contains selected field-image samples and annotation archives used by the project. The complete course dataset may be hosted separately; use the designated course storage location as the source of truth.
 
-## Dataset 
+**Dataset access:** [Course Sciebo folder](https://hshl.sciebo.de/s/g2QCsQzRqABPYmd)
 
-[Link](https://hshl.sciebo.de/s/g2QCsQzRqABPYmd)
+## Directory contents
 
-
-## Contents of the directories
-
-Each directory contains the following files:
-| Path | Purpose |
+| Path | Contents |
 | --- | --- |
-| `initial_inspection_samples/` | Contains the initial inspection samples images for the dataset and `manifest.xlsx` |
+| `initial_inspection_samples/` | Selected original field images for initial inspection, plus `Initial_inspection_samples_manifest.xlsx`. |
+| `individual_annotation_samples/` | Per-image examples containing original image archives and annotated batch archives. |
+| `mutual_annotated_samples/` | Shared image annotation exports grouped by annotator list (`annot_list_1/` and `annot_list_2/`). |
+
+## Data handling
+
+- Preserve original recordings; perform annotation and processing on working copies.
+- Keep image filenames/IDs consistent across originals, exports, manifests, and comparison outputs.
+- Record provenance and any transformations applied to an image or mask.
+- Do not commit the full dataset or restricted course material unless redistribution is explicitly permitted.
+- Avoid committing credentials or private configuration.
+
+See the README files in the individual sample directories for their local structure and the annotation class configuration.
