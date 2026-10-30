@@ -1,8 +1,11 @@
 # Documentation
 
-This directory contains the documentation and resources for the Precision Farming project.
+Project guides, planning records, and reference material for Precision Farming.
 
+## Contents
 
-## Task log
-
-See [TASK_LOG.md](TASK_LOG.md) for the team task tracker. Update the **Name**, **Date**, **Deadline**, and **When finished** fields as tasks are assigned and completed.
+| File or directory | Purpose |
+| --- | --- |
+| [ADAS_Lab_02_Team_Guide.md](ADAS_Lab_02_Team_Guide.md) | ADAS Lab 02 requirements, work packages, milestones, and validation/verification checklists. |
+| [TASK_LOG.md](TASK_LOG.md) | Team task assignments and deadlines. |
+| [papers/](papers/) | Research reference paper. |
