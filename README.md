@@ -31,3 +31,4 @@ GitHub accounts that have submitted pull requests to this repository:
 
 - [@Azefty](https://github.com/Azefty)
 - [@SamRB-dev](https://github.com/SamRB-dev)
+- [@Oluwasholape](https://github.com/Oluwasholape)
