@@ -10,6 +10,7 @@ Sadim Rahman Badhan | Task 1, Work package A (sampling, writing observations and
 MD Arman Zaid Efty | Task 1,work package B (class,annotations,tool comparison table) | 2026-10-29 | 2026-10-29
 Sadim Rahman Badhan | Task 1, Work package C (annot_list_1, annotation comparison (script and images), individual annotation samples) | 2026-10-29 | 2026-10-29
 Md Arman Zaid Efty | Task 1, Work package C (annot_list_2, annotation comparison table, individual annotation samples) | 2026-10-29 | 2026-10-29
+Oyemade Oluwasholape Daniel | Task 1, individual annotation samples | 2026-11-1 | 2026-10-29
 
 **Task 2 official deadline:** Before Christmas, according to the ASB lab instructions.
 
