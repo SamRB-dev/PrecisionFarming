@@ -1,18 +1,25 @@
 # Task Log
 
-Use this table to track work for Task 1. **Date** is the date the task was logged/assigned; **Deadline** is the agreed due date; **When finished** is the actual completion date. Update the table as work progresses. Do not enter a completion date until the work is finished and checked.
+This log records completed work and deadlines for the ASB project. The **Date completed** column records when the work was completed, not when it was assigned. Update the tables as work progresses.
 
-**Task 1 official deadline:** 2026-10-29 (end of business), according to the ASB lab instructions.
+## Task 1
 
-| Name  | Task | Date | Deadline |
-|---|---|---|---|
-Sadim Rahman Badhan | Task 1, Work package A (sampling, writing observations and manifest) | 2026-10-27 |  2026-10-29
-MD Arman Zaid Efty | Task 1,work package B (class,annotations,tool comparison table) | 2026-10-29 | 2026-10-29
-Sadim Rahman Badhan | Task 1, Work package C (annot_list_1, annotation comparison (script and images), individual annotation samples) | 2026-10-29 | 2026-10-29
-Md Arman Zaid Efty | Task 1, Work package C (annot_list_2, annotation comparison table, individual annotation samples) | 2026-10-29 | 2026-10-29
-Oyemade Oluwasholape Daniel | Task 1, individual annotation samples | 2026-11-1 | 2026-10-29
+**Official deadline:** 29 October 2026 (end of business), according to the ASB lab instructions.
 
-**Task 2 official deadline:** Before Christmas, according to the ASB lab instructions.
+| Name | Task | Date completed | Deadline |
+| --- | --- | --- | --- |
+| Sadim Rahman Badhan | Work package A: Sampling, observations, and manifest | 27 Oct 2026 | 29 Oct 2026 |
+| MD Arman Zaid Efty | Work package B: Classes, annotations, and tool comparison table | 29 Oct 2026 | 29 Oct 2026 |
+| Sadim Rahman Badhan | Work package C: `annot_list_1`, annotation comparison (script and images), individual annotation samples | 29 Oct 2026 | 29 Oct 2026 |
+| Md Arman Zaid Efty | Work package C: `annot_list_2`, annotation comparison table, individual annotation samples | 29 Oct 2026 | 29 Oct 2026 |
+| Oyemade Oluwasholape Daniel | Individual annotation samples | 1 Nov 2026 | 29 Oct 2026 |
 
-| Name  | Task | Date | Deadline |
-|---|---|---|---|
+## Task 2: Scenario-based task
+
+**Official deadline:** Before Christmas, according to the ASB lab instructions.
+
+| Name | Scenario / assigned work | Date completed | Deadline |
+| --- | --- | --- | --- |
+| | | | |
+
+*Add each team member’s scenario-based work and completion date when confirmed.*
