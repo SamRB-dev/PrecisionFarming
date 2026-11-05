@@ -1,0 +1,136 @@
+<mxfile host="Electron">
+  <diagram id="safety-reference" name="Safety Requirements">
+    <mxGraphModel dx="1337" dy="1232" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#17324D;" value="&lt;b&gt;SAFETY REQUIREMENTS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="38" width="600" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SYS-SAFE-01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DCEAF4;strokeColor=#173F5F;strokeWidth=2.2;fontColor=#102A43;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingRight=7;spacingTop=6;" value="&lt;b&gt;«requirement» SYS-SAFE-01&lt;/b&gt;&lt;br&gt;&lt;b&gt;Safe autonomous operation&lt;/b&gt;&lt;hr&gt;The system shall prevent unsafe motion and tool operation and enter a defined safe state when required." vertex="1">
+          <mxGeometry height="105" width="400" x="500" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="SAFE-01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2F8;strokeColor=#315A78;strokeWidth=1.8;fontColor=#17324D;fontSize=10;align=left;verticalAlign=top;spacingLeft=7;spacingRight=6;spacingTop=5;" value="&lt;b&gt;«requirement» SAFE-01&lt;/b&gt;&lt;br&gt;&lt;b&gt;Motion and Tool Safety&lt;/b&gt;&lt;hr&gt;The tractor shall prevent hazardous movement and unintended weed-removal activation." vertex="1">
+          <mxGeometry height="105" width="390" x="55" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-01&lt;/b&gt;&lt;br&gt;&lt;b&gt;Obstacle/person protection&lt;/b&gt;&lt;hr&gt;Stop when an obstacle or person is detected within the defined safety zone." vertex="1">
+          <mxGeometry height="112" width="150" x="60" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-02" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-02&lt;/b&gt;&lt;br&gt;&lt;b&gt;Tool interlock&lt;/b&gt;&lt;hr&gt;The weed-removal mechanism shall not activate while the tractor is moving." vertex="1">
+          <mxGeometry height="112" width="150" x="280" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-03" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-03&lt;/b&gt;&lt;br&gt;&lt;b&gt;Target verification&lt;/b&gt;&lt;hr&gt;Activate the mechanism only after the target and treatment area are verified." vertex="1">
+          <mxGeometry height="112" width="150" x="60" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-04" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-04&lt;/b&gt;&lt;br&gt;&lt;b&gt;Field-boundary containment&lt;/b&gt;&lt;hr&gt;Remain within the authorized field and stop if localization becomes unreliable." vertex="1">
+          <mxGeometry height="112" width="150" x="290" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="SAFE-02" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2F8;strokeColor=#315A78;strokeWidth=1.8;fontColor=#17324D;fontSize=10;align=left;verticalAlign=top;spacingLeft=7;spacingRight=6;spacingTop=5;" value="&lt;b&gt;«requirement» SAFE-02&lt;/b&gt;&lt;br&gt;&lt;b&gt;Data and Command Integrity&lt;/b&gt;&lt;hr&gt;The system shall operate only with reliable safety-critical data and valid commands." vertex="1">
+          <mxGeometry height="105" width="390" x="505" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-05" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-05&lt;/b&gt;&lt;br&gt;&lt;b&gt;Safe state on unavailable data&lt;/b&gt;&lt;hr&gt;Enter a defined safe state when safety-critical data are unavailable or unreliable." vertex="1">
+          <mxGeometry height="112" width="185" x="470" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-06" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-06&lt;/b&gt;&lt;br&gt;&lt;b&gt;Emergency stop&lt;/b&gt;&lt;hr&gt;Emergency stop shall halt tractor motion and disable the weed-removal mechanism." vertex="1">
+          <mxGeometry height="112" width="185" x="740" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-07" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-07&lt;/b&gt;&lt;br&gt;&lt;b&gt;Command validation&lt;/b&gt;&lt;hr&gt;Reject invalid, expired, or unauthorized commands." vertex="1">
+          <mxGeometry height="112" width="185" x="607" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="SAFE-03" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2F8;strokeColor=#315A78;strokeWidth=1.8;fontColor=#17324D;fontSize=10;align=left;verticalAlign=top;spacingLeft=7;spacingRight=6;spacingTop=5;" value="&lt;b&gt;«requirement» SAFE-03&lt;/b&gt;&lt;br&gt;&lt;b&gt;Communication and Recovery&lt;/b&gt;&lt;hr&gt;The tractor shall handle communication failure through reconnection, timeout handling, and safe recovery." vertex="1">
+          <mxGeometry height="105" width="390" x="955" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-08" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-08&lt;/b&gt;&lt;br&gt;&lt;b&gt;Communication-loss detection&lt;/b&gt;&lt;hr&gt;Detect when communication with the control station is lost or unreliable." vertex="1">
+          <mxGeometry height="112" width="150" x="960" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-09" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-09&lt;/b&gt;&lt;br&gt;&lt;b&gt;Reconnect state&lt;/b&gt;&lt;hr&gt;On communication loss, stop movement, deactivate the weeding mechanism, and attempt reconnection." vertex="1">
+          <mxGeometry height="112" width="160" x="1180" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-10&lt;/b&gt;&lt;br&gt;&lt;b&gt;Timeout state&lt;/b&gt;&lt;hr&gt;If reconnection fails within the defined timeout, remain stopped and store the failure event." vertex="1">
+          <mxGeometry height="112" width="150" x="960" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="SR-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» SR-11&lt;/b&gt;&lt;br&gt;&lt;b&gt;Safe operation resumption&lt;/b&gt;&lt;hr&gt;After communication returns, synchronize task status and verify safety conditions before resuming." vertex="1">
+          <mxGeometry height="112" width="160" x="1180" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_root_stem" edge="1" parent="1" source="SYS-SAFE-01" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="190" as="sourcePoint" />
+            <mxPoint x="700" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_root_rail" edge="1" parent="1" style="edgeStyle=none;endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="245" as="sourcePoint" />
+            <mxPoint x="1150" y="245" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_root_drop_0" edge="1" parent="1" style="edgeStyle=none;endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" target="SAFE-01" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="245" as="sourcePoint" />
+            <mxPoint x="250" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_root_drop_1" edge="1" parent="1" style="edgeStyle=none;endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" target="SAFE-02" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="245" as="sourcePoint" />
+            <mxPoint x="700" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_root_drop_2" edge="1" parent="1" style="edgeStyle=none;endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" target="SAFE-03" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1150" y="245" as="sourcePoint" />
+            <mxPoint x="1150" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_SAFE-01_stem" edge="1" parent="1" source="SAFE-01" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="435" as="sourcePoint" />
+            <mxPoint x="250" y="750" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_SAFE-02_stem" edge="1" parent="1" source="SAFE-02" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="SR-07" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="435" as="sourcePoint" />
+            <mxPoint x="700" y="475" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_SAFE-03_stem" edge="1" parent="1" source="SAFE-03" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1150" y="435" as="sourcePoint" />
+            <mxPoint x="1150" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6OFSZQwMplEnpY39J4DF-1" edge="1" parent="1" source="SR-05" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="SR-06" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="600" as="sourcePoint" />
+            <mxPoint x="780" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6OFSZQwMplEnpY39J4DF-2" edge="1" parent="1" source="SR-01" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="SR-02" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="640" as="sourcePoint" />
+            <mxPoint x="480" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6OFSZQwMplEnpY39J4DF-3" edge="1" parent="1" source="SR-03" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="SR-04" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="640" as="sourcePoint" />
+            <mxPoint x="420" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6OFSZQwMplEnpY39J4DF-4" edge="1" parent="1" source="SR-08" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="SR-09" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="530" as="sourcePoint" />
+            <mxPoint x="940" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6OFSZQwMplEnpY39J4DF-5" edge="1" parent="1" source="SR-10" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="SR-11" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="780" y="530" as="sourcePoint" />
+            <mxPoint x="940" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

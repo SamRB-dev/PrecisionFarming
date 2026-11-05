@@ -1,0 +1,151 @@
+<mxfile host="Electron">
+  <diagram id="page1" name="Functional Requirements">
+    <mxGraphModel dx="3708" dy="1942" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=18;fontColor=#17324D;" value="&lt;b&gt;FUNCTIONAL REQUIREMENTS&lt;/b&gt;" vertex="1">
+          <mxGeometry height="38" width="600" x="-90" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="SYS-REQ-01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DCEAF4;strokeColor=#173F5F;strokeWidth=2.2;fontColor=#102A43;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingRight=7;spacingTop=6;" value="&lt;b&gt;«requirement» SYS-REQ-01&lt;/b&gt;&lt;br&gt;&lt;b&gt;Autonomous agricultural weed-management system&lt;/b&gt;&lt;hr&gt;Survey the field, identify weeds, dispatch a tractor for removal, and report mission outcomes." vertex="1">
+          <mxGeometry height="120" width="277.5" x="71.25" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="DRONE" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2F8;strokeColor=#315A78;strokeWidth=1.8;fontColor=#17324D;fontSize=10;align=left;verticalAlign=top;spacingLeft=7;spacingRight=6;spacingTop=5;" value="&lt;b&gt;«requirement»&lt;/b&gt;&lt;br&gt;&lt;b&gt;SC-01 | FIELD SURVEY &amp; WEED DETECTION&lt;/b&gt;&lt;hr&gt;Survey the assigned field and generate geolocated weed observations." vertex="1">
+          <mxGeometry height="100" width="200" x="-610" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-01" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-01&lt;/b&gt;&lt;br&gt;&lt;b&gt;Select and validate field&lt;/b&gt;&lt;hr&gt;Select a registered field and provide its validated boundary to the drone." vertex="1">
+          <mxGeometry height="108" width="210" x="-930" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-02" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-02&lt;/b&gt;&lt;br&gt;&lt;b&gt;Survey assigned field&lt;/b&gt;&lt;hr&gt;The drone shall survey the assigned field and collect observations." vertex="1">
+          <mxGeometry height="108" width="200" x="-610" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-03" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-03&lt;/b&gt;&lt;br&gt;&lt;b&gt;Identify and geolocate weeds&lt;/b&gt;&lt;hr&gt;Identify suspected weeds and record field ID and geographic location." vertex="1">
+          <mxGeometry height="108" width="210" x="-320" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="TRACTOR" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2F8;strokeColor=#315A78;strokeWidth=1.8;fontColor=#17324D;fontSize=10;align=left;verticalAlign=top;spacingLeft=7;spacingRight=6;spacingTop=5;" value="&lt;b&gt;«requirement»&lt;/b&gt;&lt;br&gt;&lt;b&gt;SC-02 | TASK COORDINATION &amp; WEED REMOVAL&lt;/b&gt;&lt;hr&gt;Assign weed targets to a tractor and execute removal tasks." vertex="1">
+          <mxGeometry height="90" width="185" x="120" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-04" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-04&lt;/b&gt;&lt;br&gt;&lt;b&gt;Create and assign task&lt;/b&gt;&lt;hr&gt;Create a task ID and target from a weed observation; assign it to an available tractor." vertex="1">
+          <mxGeometry height="108" width="210" x="-40" y="606" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-05" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-05&lt;/b&gt;&lt;br&gt;&lt;b&gt;Navigate and remove weed&lt;/b&gt;&lt;hr&gt;Validate the task, navigate to the target, verify the treatment area, and remove the weed." vertex="1">
+          <mxGeometry height="108" width="210" x="250" y="606" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-06" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-06&lt;/b&gt;&lt;br&gt;&lt;b&gt;Report task outcome&lt;/b&gt;&lt;hr&gt;Report completed, partial, or failed; the station records the task status." vertex="1">
+          <mxGeometry height="108" width="210" x="-40" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-07" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-07&lt;/b&gt;&lt;br&gt;&lt;b&gt;Prevent duplicate assignment&lt;/b&gt;&lt;hr&gt;Prevent duplicate assignment; mission completes when all tasks have terminal outcomes." vertex="1">
+          <mxGeometry height="108" width="210" x="240" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="COMMS" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EAF2F8;strokeColor=#315A78;strokeWidth=1.8;fontColor=#17324D;fontSize=10;align=left;verticalAlign=top;spacingLeft=7;spacingRight=6;spacingTop=5;" value="&lt;b&gt;«requirement»&lt;/b&gt;&lt;br&gt;&lt;b&gt;SC-03 | COMMUNICATION &amp; RECOVERY&lt;/b&gt;&lt;hr&gt;Detect communication loss, preserve task state, and coordinate safe recovery." vertex="1">
+          <mxGeometry height="100" width="210" x="710" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-08" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-08&lt;/b&gt;&lt;br&gt;&lt;b&gt;Detect communication loss&lt;/b&gt;&lt;hr&gt;Detect and record loss of communication between the station and tractor." vertex="1">
+          <mxGeometry height="108" width="210" x="550" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="FR-09" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#526575;strokeWidth=1.2;fontColor=#172B3A;fontSize=9;align=left;verticalAlign=top;spacingLeft=6;spacingRight=5;spacingTop=5;" value="&lt;b&gt;«requirement» FR-09&lt;/b&gt;&lt;br&gt;&lt;b&gt;Reconcile after recovery&lt;/b&gt;&lt;hr&gt;After recovery, reconcile task status and require valid commands and safety checks before resuming." vertex="1">
+          <mxGeometry height="108" width="210" x="890" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-2" edge="1" parent="1" source="DRONE" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="-510" y="510" as="sourcePoint" />
+            <mxPoint x="-510" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-4" parent="1" style="line;strokeWidth=1;rotatable=0;dashed=0;labelPosition=right;align=left;verticalAlign=middle;spacingTop=0;spacingLeft=6;points=[];portConstraint=eastwest;labelPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="10" width="615" x="-830" y="543" as="geometry" />
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-5" edge="1" parent="1" source="SYS-REQ-01" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="TRACTOR" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="210" y="260" as="sourcePoint" />
+            <mxPoint x="210" y="305" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-6" edge="1" parent="1" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="212" y="500" as="sourcePoint" />
+            <mxPoint x="210" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-7" edge="1" parent="1" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="820" y="505" as="sourcePoint" />
+            <mxPoint x="820" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-10" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.481;entryY=0.001;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-830" y="549.89" as="sourcePoint" />
+            <mxPoint x="-830" y="589.9979999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-11" edge="1" parent="1" source="FR-02" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.521;entryY=0.498;entryDx=0;entryDy=0;entryPerimeter=0;" target="lmkjQz1JkqxQ-CWbO0kB-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-730" y="440" as="sourcePoint" />
+            <mxPoint x="-570" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-14" edge="1" parent="1" source="lmkjQz1JkqxQ-CWbO0kB-4" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.523;entryY=0.009;entryDx=0;entryDy=0;exitX=1;exitY=0.493;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" target="FR-03" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-210" y="550" as="sourcePoint" />
+            <mxPoint x="-105" y="545" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-18" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="550" as="sourcePoint" />
+            <mxPoint x="210" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-20" edge="1" parent="1" source="FR-04" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="FR-05" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-60" y="790" as="sourcePoint" />
+            <mxPoint x="100" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-21" edge="1" parent="1" source="FR-06" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="FR-07" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-60" y="790" as="sourcePoint" />
+            <mxPoint x="100" y="790" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-22" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="600" as="sourcePoint" />
+            <mxPoint x="1000" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-23" edge="1" parent="1" source="FR-08" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="730" y="650" as="sourcePoint" />
+            <mxPoint x="660" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-24" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.548;entryY=0.001;entryDx=0;entryDy=0;entryPerimeter=0;" target="FR-09" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1000" y="600" as="sourcePoint" />
+            <mxPoint x="890" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-25" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-500" y="300" as="sourcePoint" />
+            <mxPoint x="820" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-26" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.529;entryY=0.016;entryDx=0;entryDy=0;entryPerimeter=0;" target="COMMS" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="300" as="sourcePoint" />
+            <mxPoint x="860" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lmkjQz1JkqxQ-CWbO0kB-27" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0.545;entryY=0.013;entryDx=0;entryDy=0;entryPerimeter=0;" target="DRONE" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-500" y="300" as="sourcePoint" />
+            <mxPoint x="-500" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

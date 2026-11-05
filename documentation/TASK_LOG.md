@@ -20,6 +20,9 @@ This log records completed work and deadlines for the ASB project. The **Date co
 
 | Name | Scenario / assigned work | Date completed | Deadline |
 | --- | --- | --- | --- |
-| | | | |
+|Sadim Rahman Badhan | SC-01: Field Survey and Weed Detection using a Drone| | Before Christmas |
+| Oyemade Oluwasholape Daniel | SC-02: Task Coordination and Weed Removal | | Before Christmas |
+| Md Arman Zaid Efty | SC-03: Communication Failure | | Before Christmas |
+
 
 *Add each team member’s scenario-based work and completion date when confirmed.*
