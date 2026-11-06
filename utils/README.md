@@ -54,3 +54,72 @@ Unknown RGB colours are treated as background by the current decoder.
 ### Errors
 
 The script reports missing input directories, missing original images, unmatched annotation ZIPs, and ambiguous mask files.
+
+## Quantitative inter-annotator agreement (IoU)
+
+`evaluate_annotations.py` calculates the class-wise Intersection over Union (IoU)
+required by Work Package C of the lab notebook. It compares the independent
+annotations **before adjudication**.
+
+From the repository root:
+
+```bash
+python utils/evaluate_annotations.py
+```
+
+To evaluate one image pair:
+
+```bash
+python utils/evaluate_annotations.py --image-id DJI_0000
+```
+
+To use a different project root:
+
+```bash
+python utils/evaluate_annotations.py --root /path/to/PrecisionFarming
+```
+
+The script matches ZIP exports by filename stem in the two annotator directories
+listed above. It supports single-channel/indexed masks containing IDs
+`0`, `1`, `2`, and `255`, and RGB masks using the palette configured in
+`compare_annotations.py`:
+
+| ID | Class | RGB |
+| ---: | --- | --- |
+| 0 | Background | (0, 0, 0) |
+| 1 | Sugar beet | (25, 77, 28) |
+| 2 | Weed | (250, 50, 83) |
+| 255 | Ignore | (115, 51, 128) |
+
+For quantitative evaluation, unknown RGB colours are rejected instead of
+silently mapped to background. Mask dimensions must match; the evaluator does
+not resize masks.
+
+### Metric and ignore handling
+
+For each class (c):
+
+```
+IoU_c = intersection_c / union_c
+```
+
+Pixels are excluded from **all** class calculations if either annotator marks
+the pixel as `255`. The excluded fraction is reported separately. Intersections
+and unions are summed across all matched images first, and aggregate IoU is
+then calculated from those pooled counts. Per-image IoUs are also reported for
+inspection, but are not averaged to obtain the aggregate result. A zero union
+is reported as `N/A`.
+
+### Outputs
+
+The results are written to `experiments/annotation_evaluation/`:
+
+| File | Contents |
+| --- | --- |
+| `per_image_iou.csv` | Per-image IoU for each class, plus total/excluded pixel counts and excluded fraction. |
+| `aggregate_iou.csv` | Pooled intersection, union and aggregate IoU for Background, Sugar beet and Weed. |
+| `ignore_statistics.csv` | Dataset-level total, valid and excluded pixel counts and excluded fraction. |
+| `iou_summary.txt` | Human-readable summary of the pooled results and method. |
+
+The aggregate class-wise scores—not a mean of per-image scores and not overall
+pixel accuracy—are the primary agreement results to report in the notebook.
