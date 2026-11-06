@@ -18,15 +18,30 @@ from __future__ import annotations
 
 import argparse
 import csv
+import io
 import sys
+import zipfile
 from pathlib import Path
 
 import numpy as np
+from PIL import Image
 
 try:
-    from compare_annotations import find_zip_files, load_mask_from_zip
+    from compare_annotations import (
+        choose_mask_member,
+        find_zip_files,
+        IGNORE_COLOR,
+        SUGAR_BEET_COLOR,
+        WEED_COLOR,
+    )
 except ImportError:  # pragma: no cover
-    from utils.compare_annotations import find_zip_files, load_mask_from_zip
+    from utils.compare_annotations import (
+        choose_mask_member,
+        find_zip_files,
+        IGNORE_COLOR,
+        SUGAR_BEET_COLOR,
+        WEED_COLOR,
+    )
 
 
 CLASS_NAMES = {0: "Background", 1: "Sugar beet", 2: "Weed"}
@@ -34,6 +49,53 @@ IGNORE_ID = 255
 ANNOTATOR_1_DIR = Path("data/mutual_annotated_samples/annot_list_1")
 ANNOTATOR_2_DIR = Path("data/mutual_annotated_samples/annot_list_2")
 OUTPUT_DIR = Path("experiments/annotation_evaluation")
+
+
+def load_mask_for_evaluation(zip_path: Path, image_id: str) -> np.ndarray:
+    """Load a mask while rejecting unknown RGB colours.
+
+    The visual comparison utility intentionally treats unknown RGB colours as
+    background. That is unsafe for quantitative metrics because an export or
+    palette error could silently inflate background agreement. Here, only the
+    documented palette is accepted.
+    """
+    with zipfile.ZipFile(zip_path, "r") as archive:
+        member = choose_mask_member(archive, image_id)
+        payload = archive.read(member)
+
+    with Image.open(io.BytesIO(payload)) as image:
+        image.load()
+        if image.mode in ("L", "P", "1", "I", "I;16"):
+            raw = np.asarray(image)
+            if raw.ndim != 2:
+                raise ValueError(f"{zip_path.name}:{member}: expected a 2-D mask.")
+            return raw.astype(np.uint8)
+
+        rgb = np.asarray(image.convert("RGB"))
+        mask = np.full(rgb.shape[:2], -1, dtype=np.int16)
+        palette = {
+            (0, 0, 0): 0,
+            tuple(SUGAR_BEET_COLOR): 1,
+            tuple(WEED_COLOR): 2,
+            tuple(IGNORE_COLOR): IGNORE_ID,
+        }
+        for colour, class_id in palette.items():
+            mask[np.all(rgb == colour, axis=2)] = class_id
+
+        unknown = mask == -1
+        if np.any(unknown):
+            colours, counts = np.unique(
+                rgb[unknown].reshape(-1, 3), axis=0, return_counts=True
+            )
+            examples = [
+                f"{tuple(map(int, colour))} ({int(count)} px)"
+                for colour, count in zip(colours[:8], counts[:8])
+            ]
+            raise ValueError(
+                f"{zip_path.name}:{member}: RGB colours outside the agreed "
+                "annotation palette: " + ", ".join(examples)
+            )
+        return mask.astype(np.uint8)
 
 
 def calculate_image_counts(mask_a: np.ndarray, mask_b: np.ndarray) -> dict:
@@ -112,8 +174,8 @@ def evaluate_dataset(
 
     for key in shared_ids:
         display_id = zips_a[key].stem
-        mask_a = load_mask_from_zip(zips_a[key], display_id)
-        mask_b = load_mask_from_zip(zips_b[key], display_id)
+        mask_a = load_mask_for_evaluation(zips_a[key], display_id)
+        mask_b = load_mask_for_evaluation(zips_b[key], display_id)
         counts = calculate_image_counts(mask_a, mask_b)
 
         row = {
