@@ -91,9 +91,12 @@ listed above. It supports single-channel/indexed masks containing IDs
 | 2 | Weed | (250, 50, 83) |
 | 255 | Ignore | (115, 51, 128) |
 
-For quantitative evaluation, unknown RGB colours are rejected instead of
-silently mapped to background. Mask dimensions must match; the evaluator does
-not resize masks.
+For quantitative evaluation, the evaluator uses the agreed project palette
+strictly. If either annotator's mask in an image pair contains an unknown RGB
+colour, an invalid class ID, or dimensions that do not match, the entire image
+pair is skipped. No pixels from a skipped pair contribute to IoU or ignore
+statistics. Skipped image IDs and reasons are recorded in
+`skipped_images.csv`. The evaluator does not resize masks.
 
 ### Metric and ignore handling
 
@@ -119,7 +122,8 @@ The results are written to `experiments/annotation_evaluation/`:
 | `per_image_iou.csv` | Per-image IoU for each class, plus total/excluded pixel counts and excluded fraction. |
 | `aggregate_iou.csv` | Pooled intersection, union and aggregate IoU for Background, Sugar beet and Weed. |
 | `ignore_statistics.csv` | Dataset-level total, valid and excluded pixel counts and excluded fraction. |
-| `iou_summary.txt` | Human-readable summary of the pooled results and method. |
+| `iou_summary.txt` | Human-readable summary of evaluated/skipped pair counts, pooled results and method. |
+| `skipped_images.csv` | Image IDs and reasons for image pairs excluded due to unknown colours, invalid class IDs, or dimension mismatches. |
 
 The aggregate class-wise scores—not a mean of per-image scores and not overall
 pixel accuracy—are the primary agreement results to report in the notebook.
