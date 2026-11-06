@@ -69,7 +69,7 @@ def load_mask_for_evaluation(zip_path: Path, image_id: str) -> np.ndarray:
             raw = np.asarray(image)
             if raw.ndim != 2:
                 raise ValueError(f"{zip_path.name}:{member}: expected a 2-D mask.")
-            return raw.astype(np.uint8)
+            return raw
 
         rgb = np.asarray(image.convert("RGB"))
         mask = np.full(rgb.shape[:2], -1, dtype=np.int16)
@@ -255,6 +255,35 @@ def write_outputs(per_image: list[dict], aggregate: dict, output_dir: Path) -> N
     print(f"  - {per_image_path.name}")
     print(f"  - {summary_path.name}")
     print(f"  - {excluded_path.name}")
+
+
+    report_path = output_dir / "iou_summary.txt"
+    report_lines = [
+        "INTER-ANNOTATOR AGREEMENT: CLASS-WISE IoU",
+        "=" * 48,
+        f"Compared image pairs: {aggregate['image_count']}",
+        f"Total pixels: {aggregate['total_pixels']}",
+        f"Valid pixels used for IoU: {aggregate['valid_pixels']}",
+        f"Pixels excluded (Ignore in either mask): {aggregate['excluded_pixels']}",
+        f"Excluded fraction: {aggregate['excluded_fraction']:.6%}",
+        "",
+        "Aggregate class-wise IoU (global intersection / global union):",
+    ]
+    for class_id, result in aggregate["classes"].items():
+        score = "N/A" if result["iou"] is None else f"{result['iou']:.6f}"
+        report_lines.append(
+            f"  {result['class_name']}: {score} "
+            f"(intersection={result['intersection']}, union={result['union']})"
+        )
+    report_lines.extend([
+        "",
+        "Method: intersections and unions are pooled across image pairs before",
+        "calculating aggregate IoU. Pixels marked Ignore (255) by either",
+        "annotator are excluded. Per-image IoUs are supplementary and are not",
+        "averaged to obtain aggregate IoU. Zero-union classes are N/A.",
+    ])
+    report_path.write_text("\\n".join(report_lines) + "\\n", encoding="utf-8")
+    print(f"  - {report_path.name}")
 
 
 def main() -> None:
