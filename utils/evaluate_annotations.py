@@ -46,6 +46,10 @@ except ImportError:  # pragma: no cover
 
 CLASS_NAMES = {0: "Background", 1: "Sugar beet", 2: "Weed"}
 IGNORE_ID = 255
+
+
+class UnknownPaletteError(ValueError):
+    """Raised when an RGB mask contains colours outside the agreed palette."""
 ANNOTATOR_1_DIR = Path("data/mutual_annotated_samples/annot_list_1")
 ANNOTATOR_2_DIR = Path("data/mutual_annotated_samples/annot_list_2")
 OUTPUT_DIR = Path("experiments/annotation_evaluation")
@@ -91,7 +95,7 @@ def load_mask_for_evaluation(zip_path: Path, image_id: str) -> np.ndarray:
                 f"{tuple(map(int, colour))} ({int(count)} px)"
                 for colour, count in zip(colours[:8], counts[:8])
             ]
-            raise ValueError(
+            raise UnknownPaletteError(
                 f"{zip_path.name}:{member}: RGB colours outside the agreed "
                 "annotation palette: " + ", ".join(examples)
             )
@@ -161,8 +165,11 @@ def evaluate_dataset(
         raise RuntimeError("No matching annotation ZIP pairs were found.")
 
     per_image = []
+    skipped_images = []
     aggregate = {
         "image_count": 0,
+        "skipped_count": 0,
+        "skipped_images": skipped_images,
         "total_pixels": 0,
         "excluded_pixels": 0,
         "valid_pixels": 0,
@@ -174,9 +181,18 @@ def evaluate_dataset(
 
     for key in shared_ids:
         display_id = zips_a[key].stem
-        mask_a = load_mask_for_evaluation(zips_a[key], display_id)
-        mask_b = load_mask_for_evaluation(zips_b[key], display_id)
-        counts = calculate_image_counts(mask_a, mask_b)
+        try:
+            mask_a = load_mask_for_evaluation(zips_a[key], display_id)
+            mask_b = load_mask_for_evaluation(zips_b[key], display_id)
+        except UnknownPaletteError as error:
+            skipped_images.append({"image_id": display_id, "reason": str(error)})
+            continue
+        try:
+            counts = calculate_image_counts(mask_a, mask_b)
+        except ValueError as error:
+            # Invalid dimensions or class IDs invalidate the entire image pair.
+            skipped_images.append({"image_id": display_id, "reason": str(error)})
+            continue
 
         row = {
             "image_id": display_id,
@@ -198,6 +214,10 @@ def evaluate_dataset(
         for key_name in ("total_pixels", "excluded_pixels", "valid_pixels"):
             aggregate[key_name] += counts[key_name]
 
+    aggregate["skipped_count"] = len(skipped_images)
+    if not per_image:
+        raise RuntimeError("No valid image pairs remain after validation; no IoU can be calculated.")
+
     # Pool counts across images first; do not average per-image IoU values.
     for result in aggregate["classes"].values():
         union = result["union"]
@@ -214,10 +234,17 @@ def write_outputs(per_image: list[dict], aggregate: dict, output_dir: Path) -> N
     output_dir.mkdir(parents=True, exist_ok=True)
 
     per_image_path = output_dir / "per_image_iou.csv"
+    per_image_fields = ["image_id", "total_pixels", "excluded_pixels", "excluded_fraction", "background_iou", "sugar_beet_iou", "weed_iou"]
     with per_image_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(per_image[0].keys()))
+        writer = csv.DictWriter(handle, fieldnames=per_image_fields)
         writer.writeheader()
         writer.writerows(per_image)
+
+    skipped_path = output_dir / "skipped_images.csv"
+    with skipped_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["image_id", "reason"])
+        writer.writeheader()
+        writer.writerows(aggregate["skipped_images"])
 
     summary_path = output_dir / "aggregate_iou.csv"
     with summary_path.open("w", newline="", encoding="utf-8") as handle:
@@ -239,6 +266,7 @@ def write_outputs(per_image: list[dict], aggregate: dict, output_dir: Path) -> N
         writer.writerow({key: aggregate[key] for key in fields})
 
     print(f"Evaluated image pairs: {aggregate['image_count']}")
+    print(f"Skipped image pairs: {aggregate['skipped_count']}")
     print(
         "Pixels excluded (ignore in either mask): "
         f"{aggregate['excluded_pixels']:,} / {aggregate['total_pixels']:,} "
@@ -255,13 +283,15 @@ def write_outputs(per_image: list[dict], aggregate: dict, output_dir: Path) -> N
     print(f"  - {per_image_path.name}")
     print(f"  - {summary_path.name}")
     print(f"  - {excluded_path.name}")
+    print(f"  - {skipped_path.name}")
 
 
     report_path = output_dir / "iou_summary.txt"
     report_lines = [
         "INTER-ANNOTATOR AGREEMENT: CLASS-WISE IoU",
         "=" * 48,
-        f"Compared image pairs: {aggregate['image_count']}",
+        f"Evaluated image pairs: {aggregate['image_count']}",
+        f"Skipped image pairs: {aggregate['skipped_count']}",
         f"Total pixels: {aggregate['total_pixels']}",
         f"Valid pixels used for IoU: {aggregate['valid_pixels']}",
         f"Pixels excluded (Ignore in either mask): {aggregate['excluded_pixels']}",
@@ -279,7 +309,10 @@ def write_outputs(per_image: list[dict], aggregate: dict, output_dir: Path) -> N
         "",
         "Method: intersections and unions are pooled across image pairs before",
         "calculating aggregate IoU. Pixels marked Ignore (255) by either",
-        "annotator are excluded. Per-image IoUs are supplementary and are not",
+        "annotator are excluded. Image pairs with unknown RGB colours or",
+        "invalid dimensions/class IDs are skipped entirely and contribute no",
+        "pixels to any metric. See skipped_images.csv for IDs and reasons.",
+        "Per-image IoUs are supplementary and are not",
         "averaged to obtain aggregate IoU. Zero-union classes are N/A.",
     ])
     report_path.write_text("\\n".join(report_lines) + "\\n", encoding="utf-8")
