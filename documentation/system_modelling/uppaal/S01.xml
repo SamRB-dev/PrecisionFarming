@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+</declaration>
+	<template>
+		<name x="5" y="5">Template</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="-238" y="-127">
+			<name x="-255" y="-161">idle</name>
+		</location>
+		<location id="id1" x="42" y="-136">
+			<name x="-62" y="-170">field_geolocation_validation</name>
+		</location>
+		<location id="id2" x="42" y="-25">
+			<name x="-8" y="-59">start_survey</name>
+		</location>
+		<location id="id3" x="195" y="161">
+			<name x="118" y="127">send_weed_geolocation</name>
+		</location>
+		<location id="id4" x="280" y="42">
+			<name x="195" y="8">plant_classification</name>
+		</location>
+		<location id="id5" x="-76" y="161">
+			<name x="-161" y="127">store_weed_geolocation</name>
+		</location>
+		<location id="id6" x="-195" y="221">
+			<name x="-246" y="187">end_survey</name>
+		</location>
+		<location id="id7" x="-195" y="42">
+			<name x="-272" y="8">is_field_fully_mapped</name>
+		</location>
+		<init ref="id0"/>
+		<transition id="id8">
+			<source ref="id7"/>
+			<target ref="id6"/>
+		</transition>
+		<transition id="id9">
+			<source ref="id7"/>
+			<target ref="id2"/>
+		</transition>
+		<transition id="id10">
+			<source ref="id5"/>
+			<target ref="id7"/>
+		</transition>
+		<transition id="id11">
+			<source ref="id3"/>
+			<target ref="id5"/>
+		</transition>
+		<transition id="id12">
+			<source ref="id4"/>
+			<target ref="id3"/>
+		</transition>
+		<transition id="id13">
+			<source ref="id2"/>
+			<target ref="id4"/>
+		</transition>
+		<transition id="id14">
+			<source ref="id1"/>
+			<target ref="id2"/>
+		</transition>
+		<transition id="id15">
+			<source ref="id0"/>
+			<target ref="id1"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+Process = Template();
+// List one or more processes to be composed into a system.
+system Process;
+</system>
+	<queries>
+		<query>
+			<formula/>
+			<comment/>
+		</query>
+	</queries>
+</nta>
