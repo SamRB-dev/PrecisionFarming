@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>
+const int T_RECONNECT = 10;
+
+bool communicationOK = true;
+bool tractorMoving = true;
+bool toolEnabled = true;
+bool recoveryApproved = false;
+
+bool failureStored = false;
+bool failureReported = false;
+bool wasInterrupted = false;
+bool checksOK = false;
+chan link_restored;
+chan operator_approved;
+
+bool taskStatusValid = true;
+bool commandValid = true;
+bool localizationValid = true;
+bool obstacleClear = true;
+</declaration>
+	<template>
+		<name x="5" y="5">Tractor</name>
+		<declaration>
+clock x;
+clock retry;
+</declaration>
+		<location id="id0" x="-255" y="-331">
+			<name x="-265" y="-365">Reconnect</name>
+			<label kind="invariant" x="-348" y="-306">x &lt;= T_RECONNECT &amp;&amp; retry &lt;= 2</label>
+		</location>
+		<location id="id1" x="-612" y="-306">
+			<name x="-622" y="-340">Working</name>
+		</location>
+		<location id="id2" x="229" y="178">
+			<name x="204" y="195">Timeout</name>
+		</location>
+		<location id="id3" x="399" y="-340">
+			<name x="348" y="-382">RecoveryCheck</name>
+		</location>
+		<location id="id4" x="807" y="-93">
+			<name x="797" y="-127">Stopped</name>
+		</location>
+		<init ref="id1"/>
+		<transition id="id5">
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="select" x="535" y="-42">result : int[0,1],
+task : int[0,1],
+cmd : int[0,1],
+loc : int[0,1],
+obs : int[0,1]</label>
+			<label kind="guard" x="510" y="-119">communicationOK</label>
+			<label kind="synchronisation" x="535" y="-59">operator_approved?</label>
+			<label kind="assignment" x="518" y="68">checksOK = (result == 1),
+taskStatusValid = (task == 1),
+commandValid = (cmd == 1),
+localizationValid = (loc == 1),
+obstacleClear = (obs == 1)</label>
+			<nail x="714" y="-34"/>
+			<nail x="425" y="-212"/>
+		</transition>
+		<transition id="id6">
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="guard" x="450" y="-450">!(communicationOK &amp;&amp;
+  checksOK &amp;&amp;
+  taskStatusValid &amp;&amp;
+  commandValid &amp;&amp;
+  localizationValid &amp;&amp;
+  obstacleClear)</label>
+			<label kind="assignment" x="450" y="-306">recoveryApproved = false,
+tractorMoving = false,
+toolEnabled = false</label>
+		</transition>
+		<transition id="id7">
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-569" y="-629">communicationOK &amp;&amp;
+checksOK &amp;&amp;
+taskStatusValid &amp;&amp;
+commandValid &amp;&amp;
+localizationValid &amp;&amp;
+obstacleClear</label>
+			<label kind="assignment" x="-578" y="-501">recoveryApproved = true,
+tractorMoving = true,
+toolEnabled = true</label>
+			<nail x="110" y="-535"/>
+			<nail x="-595" y="-518"/>
+			<nail x="-603" y="-323"/>
+		</transition>
+		<transition id="id8">
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="select" x="238" y="-110">result : int[0,1],
+task : int[0,1],
+cmd : int[0,1],
+loc : int[0,1],
+obs : int[0,1]</label>
+			<label kind="synchronisation" x="178" y="144">link_restored?</label>
+			<label kind="assignment" x="161" y="0">communicationOK = true,
+failureReported = true,
+checksOK = (result == 1),
+taskStatusValid = (task == 1),
+commandValid = (cmd == 1),
+localizationValid = (loc == 1),
+obstacleClear = (obs == 1)</label>
+		</transition>
+		<transition id="id9">
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-187" y="-144">x &gt;= T_RECONNECT</label>
+			<label kind="assignment" x="-178" y="-119">failureStored = true</label>
+		</transition>
+		<transition id="id10">
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="select" x="42" y="-357">result : int[0,1],
+task : int[0,1],
+cmd : int[0,1],
+loc : int[0,1],
+obs : int[0,1]</label>
+			<label kind="guard" x="42" y="-382">x &lt; T_RECONNECT</label>
+			<label kind="synchronisation" x="34" y="-255">link_restored?</label>
+			<label kind="assignment" x="0" y="-238">communicationOK = true,
+checksOK = (result == 1),
+taskStatusValid = (task == 1),
+commandValid = (cmd == 1),
+localizationValid = (loc == 1),
+obstacleClear = (obs == 1)</label>
+		</transition>
+		<transition id="id11">
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-314" y="-416">retry == 2 &amp;&amp; x &lt; T_RECONNECT</label>
+			<label kind="assignment" x="-204" y="-391">retry = 0</label>
+			<nail x="-170" y="-340"/>
+			<nail x="-178" y="-399"/>
+			<nail x="-289" y="-382"/>
+			<nail x="-280" y="-365"/>
+			<nail x="-263" y="-340"/>
+			<nail x="-280" y="-365"/>
+			<nail x="-272" y="-348"/>
+		</transition>
+		<transition id="id12">
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="assignment" x="-569" y="-306">communicationOK = false,
+tractorMoving = false,
+toolEnabled = false,
+recoveryApproved = false,
+failureStored = false,
+failureReported = false,
+wasInterrupted = true,
+checksOK = false,
+x = 0,
+retry = 0,
+
+taskStatusValid = false,
+commandValid = false</label>
+		</transition>
+	</template>
+	<template>
+		<name>ExternalEvents</name>
+		<location id="id13" x="0" y="0">
+			<name x="-10" y="-34">Idle</name>
+		</location>
+		<init ref="id13"/>
+		<transition id="id14">
+			<source ref="id13"/>
+			<target ref="id13"/>
+			<label kind="synchronisation" x="-102" y="17">operator_approved!</label>
+			<nail x="-76" y="8"/>
+			<nail x="17" y="51"/>
+			<nail x="8" y="8"/>
+		</transition>
+		<transition id="id15">
+			<source ref="id13"/>
+			<target ref="id13"/>
+			<label kind="synchronisation" x="8" y="-59">link_restored!</label>
+			<nail x="76" y="-17"/>
+			<nail x="-34" y="-68"/>
+		</transition>
+	</template>
+	<system>
+system Tractor, ExternalEvents;
+</system>
+	<queries>
+		<query>
+			<formula>A[] (Tractor.Reconnect imply !toolEnabled)</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 19:57:55 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (!communicationOK imply !tractorMoving)</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 19:58:16 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] ((Tractor.Working &amp;&amp; wasInterrupted) imply (recoveryApproved &amp;&amp; checksOK))</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:39:38 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (Tractor.Stopped imply (!tractorMoving &amp;&amp; !toolEnabled))</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 19:59:38 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; Tractor.Timeout</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:00:27 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (!communicationOK imply !tractorMoving)</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:10:04 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (Tractor.Stopped imply (!tractorMoving &amp;&amp; !toolEnabled))</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:10:22 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; Tractor.Timeout</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:10:32 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; Tractor.Stopped</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:11:24 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>
+A[] (Tractor.RecoveryCheck imply (!tractorMoving &amp;&amp; !toolEnabled))
+</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 22:04:16 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>
+A[] (Tractor.RecoveryCheck imply (!tractorMoving &amp;&amp; !toolEnabled))
+</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:43:22 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>
+E&lt;&gt; (Tractor.Working &amp;&amp; failureStored &amp;&amp; failureReported &amp;&amp; recoveryApproved)
+</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:43:33 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] not deadlock</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 22:08:32 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>
+A[] (Tractor.Timeout imply
+    (!tractorMoving &amp;&amp; !toolEnabled &amp;&amp; failureStored))
+</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:39:45 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; (Tractor.Working &amp;&amp; wasInterrupted &amp;&amp; recoveryApproved)</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 20:11:33 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>
+A[] ((Tractor.Working &amp;&amp; wasInterrupted) imply
+(recoveryApproved &amp;&amp; checksOK &amp;&amp;
+taskStatusValid &amp;&amp; commandValid &amp;&amp;
+localizationValid &amp;&amp; obstacleClear))
+</formula>
+			<comment/>
+			<result outcome="success" type="quality" timestamp="2026-11-12 22:04:49 +0100">
+			</result>
+		</query>
+	</queries>
+</nta>
