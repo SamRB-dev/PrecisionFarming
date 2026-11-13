@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mxfile host="app.diagrams.net" modified="2026-11-06T00:00:00.000Z" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="scenario2-requirements" name="Scenario 2 Requirements">
+    <mxGraphModel dx="1250" dy="1800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1180" pageHeight="1760" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="SCENARIO 2 / REQUIREMENTS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=27;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="35" width="920" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="subtitle" value="Tractor task coordination and safe weed removal" style="text;html=1;align=center;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=19;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="140" y="87" width="900" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="root_req" value="&lt;b&gt;SCENARIO SCOPE&lt;/b&gt;&lt;br&gt;Task coordination and safe weed removal&lt;br&gt;&lt;font color=&quot;#666666&quot;&gt;FR-04–FR-07 | SR-01–SR-07&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=17;spacingRight=12;strokeColor=#222222;fillColor=#FFFFFF;fontFamily=Arial;fontSize=19;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="332" y="137" width="516" height="111" as="geometry"/>
+        </mxCell>
+        <mxCell id="fr_container" value="" style="rounded=1;html=1;strokeColor=#999999;fillColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="42" y="290" width="1096" height="531" as="geometry"/>
+        </mxCell>
+        <mxCell id="sr_container" value="" style="rounded=1;html=1;strokeColor=#999999;fillColor=none;strokeWidth=1.2;" vertex="1" parent="1">
+          <mxGeometry x="42" y="863" width="1096" height="798" as="geometry"/>
+        </mxCell>
+        <mxCell id="frhead" value="FUNCTIONAL REQUIREMENTS     FR-04—FR-07" style="rounded=0;html=1;align=left;verticalAlign=middle;spacingLeft=22;strokeColor=#333333;fillColor=#F6F6F6;fontFamily=Arial;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="62" y="310" width="1056" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="srhead" value="SAFETY REQUIREMENTS     SR-01—SR-07" style="rounded=0;html=1;align=left;verticalAlign=middle;spacingLeft=22;strokeColor=#333333;fillColor=#F6F6F6;fontFamily=Arial;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="62" y="883" width="1056" height="58" as="geometry"/>
+        </mxCell>
+        <mxCell id="FR-04" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;FR-04 — Create and assign a task&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Create a unique task ID and target; assign to an available tractor." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="395" width="486" height="143" as="geometry"/>
+        </mxCell>
+        <mxCell id="FR-05" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;FR-05 — Navigate and remove weed&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Validate the task, navigate, verify the treatment area, and perform removal." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="592" y="395" width="486" height="143" as="geometry"/>
+        </mxCell>
+        <mxCell id="FR-06" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;FR-06 — Report task outcome&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Report completed, partial, or failed; Control Station records the status." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="567" width="486" height="143" as="geometry"/>
+        </mxCell>
+        <mxCell id="FR-07" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;FR-07 — Prevent duplicate assignment&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Prevent concurrent duplicate assignment; only finish once tasks have terminal outcomes." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="592" y="567" width="486" height="143" as="geometry"/>
+        </mxCell>
+        <mxCell id="SR-01" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;SR-01 — Obstacle / person protection&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Stop when an obstacle or person enters the defined safety zone." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="1025" width="486" height="138" as="geometry"/>
+        </mxCell>
+        <mxCell id="SR-02" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;SR-02 — Tool interlock&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Do not activate the removal mechanism while the tractor is moving." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="592" y="1025" width="486" height="138" as="geometry"/>
+        </mxCell>
+        <mxCell id="SR-03" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;SR-03 — Target verification&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Activate removal only after target and treatment-area verification." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="1189" width="486" height="138" as="geometry"/>
+        </mxCell>
+        <mxCell id="SR-04" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;SR-04 — Field-boundary containment&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Remain in the authorized field; stop if localization is unreliable." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="592" y="1189" width="486" height="138" as="geometry"/>
+        </mxCell>
+        <mxCell id="SR-05" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;SR-05 — Unavailable safety data&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Enter a defined safe state if critical data are unavailable or unreliable." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="1353" width="486" height="138" as="geometry"/>
+        </mxCell>
+        <mxCell id="SR-06" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;SR-06 — Emergency stop&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Halt tractor motion and disable the weed-removal mechanism." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="592" y="1353" width="486" height="138" as="geometry"/>
+        </mxCell>
+        <mxCell id="SR-07" value="&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;SR-07 — Command validation&lt;/b&gt;&lt;br&gt;&lt;hr&gt;Reject invalid, expired, or unauthorized commands." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=middle;spacingLeft=16;spacingRight=12;strokeColor=#333333;fillColor=#FFFFFF;fontFamily=Arial;fontSize=18;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="82" y="1517" width="486" height="138" as="geometry"/>
+        </mxCell>
+        <mxCell id="footer" value="Requirements grouped by function and safety; IDs follow the team’s Scenario 2 guide." style="text;html=1;align=center;strokeColor=none;fillColor=none;fontColor=#666666;fontFamily=Arial;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="180" y="1688" width="820" height="45" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
