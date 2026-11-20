@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.6//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_6.dtd'>
+<nta>
+	<declaration>// Scenario 2: standalone, simplified task coordination and weed removal.
+// Timing values are abstract modelling units, not real tractor measurements.
+const int NAV_MIN = 2;
+const int NAV_MAX = 5;
+const int REMOVE_MIN = 1;
+const int REMOVE_MAX = 3;
+
+chan assign_task;
+chan report_result;
+
+bool moving = false;
+bool actuatorOn = false;
+bool targetValid = false;
+bool targetVerified = false;
+// 0 = not reported, 1 = completed, 2 = failed.
+int[0,2] taskResult = 0;
+int[0,20] recordedTasks = 0;
+</declaration>
+	<template>
+		<name x="5" y="5">ControlStation</name>
+		<location id="id0" x="0" y="0">
+			<name x="15" y="-34">Idle</name>
+		</location>
+		<location id="id1" x="0" y="130">
+			<name x="15" y="96">CreateTask</name>
+		</location>
+		<location id="id2" x="0" y="260">
+			<name x="15" y="226">AssignTask</name>
+		</location>
+		<location id="id3" x="0" y="410">
+			<name x="15" y="376">WaitForOutcome</name>
+		</location>
+		<location id="id4" x="0" y="560">
+			<name x="15" y="526">RecordOutcome</name>
+		</location>
+		<init ref="id0"/>
+		<transition id="id5">
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="assignment" x="20" y="53">taskResult = 0</label>
+		</transition>
+		<transition id="id6">
+			<source ref="id1"/>
+			<target ref="id2"/>
+		</transition>
+		<transition id="id7">
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="20" y="323">assign_task!</label>
+		</transition>
+		<transition id="id8">
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="20" y="473">report_result?</label>
+			<label kind="assignment" x="20" y="491">recordedTasks = recordedTasks &lt; 20 ? recordedTasks + 1 : 20</label>
+		</transition>
+		<transition id="id9">
+			<source ref="id4"/>
+			<target ref="id0"/>
+			<nail x="187" y="561"/>
+			<nail x="187" y="0"/>
+		</transition>
+	</template>
+	<template>
+		<name x="5" y="5">Tractorr</name>
+		<declaration>clock navClock;
+clock removeClock;</declaration>
+		<location id="id10" x="-100" y="0">
+			<name x="-85" y="-34">Idle</name>
+		</location>
+		<location id="id11" x="-100" y="130">
+			<name x="-85" y="96">ReceiveTask</name>
+		</location>
+		<location id="id12" x="-100" y="270">
+			<name x="-85" y="236">Navigating</name>
+			<label kind="invariant" x="-80" y="290">navClock &lt;= NAV_MAX</label>
+		</location>
+		<location id="id13" x="-100" y="430">
+			<name x="-85" y="396">VerifyTarget</name>
+			<committed/>
+		</location>
+		<location id="id14" x="-350" y="590">
+			<name x="-335" y="556">RemovingWeeds</name>
+			<label kind="invariant" x="-330" y="610">removeClock &lt;= REMOVE_MAX</label>
+		</location>
+		<location id="id15" x="-350" y="750">
+			<name x="-335" y="716">TaskCompleted</name>
+			<committed/>
+		</location>
+		<location id="id16" x="170" y="750">
+			<name x="185" y="716">TaskFailed</name>
+			<committed/>
+		</location>
+		<location id="id17" x="-100" y="920">
+			<name x="-85" y="886">ReportOutcome</name>
+		</location>
+		<init ref="id10"/>
+		<transition id="id18">
+			<source ref="id10"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="-80" y="53">assign_task?</label>
+			<label kind="assignment" x="-80" y="71">targetVerified = false, actuatorOn = false</label>
+		</transition>
+		<transition id="id19">
+			<source ref="id11"/>
+			<target ref="id12"/>
+			<label kind="assignment" x="-80" y="188">moving = true, navClock = 0</label>
+		</transition>
+		<transition id="id20">
+			<source ref="id12"/>
+			<target ref="id13"/>
+			<label kind="select" x="-80" y="338">valid : int[0,1]</label>
+			<label kind="guard" x="-80" y="356">navClock &gt;= NAV_MIN</label>
+			<label kind="assignment" x="-80" y="374">moving = false, targetValid = (valid == 1)</label>
+		</transition>
+		<transition id="id21">
+			<source ref="id13"/>
+			<target ref="id14"/>
+			<label kind="guard" x="-205" y="498">targetValid &amp;&amp; !moving</label>
+			<label kind="assignment" x="-205" y="516">targetVerified = true, actuatorOn = true, removeClock = 0</label>
+		</transition>
+		<transition id="id22">
+			<source ref="id13"/>
+			<target ref="id16"/>
+			<label kind="guard" x="55" y="578">!targetValid</label>
+			<label kind="assignment" x="55" y="596">targetVerified = false, actuatorOn = false</label>
+		</transition>
+		<transition id="id23">
+			<source ref="id14"/>
+			<target ref="id15"/>
+			<label kind="guard" x="-330" y="658">removeClock &gt;= REMOVE_MIN</label>
+			<label kind="assignment" x="-330" y="676">actuatorOn = false</label>
+		</transition>
+		<transition id="id24">
+			<source ref="id15"/>
+			<target ref="id17"/>
+			<label kind="assignment" x="-205" y="823">taskResult = 1</label>
+		</transition>
+		<transition id="id25">
+			<source ref="id16"/>
+			<target ref="id17"/>
+			<label kind="assignment" x="55" y="823">taskResult = 2</label>
+		</transition>
+		<transition id="id26">
+			<source ref="id17"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-80" y="448">report_result!</label>
+			<nail x="470" y="920"/>
+			<nail x="470" y="-60"/>
+		</transition>
+	</template>
+	<system>Station = ControlStation();
+Vehicle = Tractorr();
+system Station, Vehicle;
+</system>
+	<queries>
+		<query>
+			<formula>A[] not deadlock</formula>
+			<comment>No deadlock in the standalone model.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:03 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] !(moving &amp;&amp; actuatorOn)</formula>
+			<comment>Tool interlock: never activate weed removal while moving.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:06 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (Vehicle.RemovingWeeds imply (targetVerified &amp;&amp; !moving &amp;&amp; actuatorOn))</formula>
+			<comment>Removal only after target verification while stationary.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:08 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; (Vehicle.ReportOutcome &amp;&amp; taskResult == 1)</formula>
+			<comment>A successful task result is reachable.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:10 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; (Vehicle.ReportOutcome &amp;&amp; taskResult == 2)</formula>
+			<comment>An unsuccessful target verification result is reachable.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:13 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; Station.RecordOutcome</formula>
+			<comment>The Control Station can receive and record a task outcome.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:15 +0100">
+			</result>
+		</query>
+	</queries>
+</nta>
