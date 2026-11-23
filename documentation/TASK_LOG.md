@@ -20,9 +20,20 @@ This log records completed work and deadlines for the ASB project. The **Date co
 
 | Name | Scenario / assigned work | Date completed | Deadline |
 | --- | --- | --- | --- |
-|Sadim Rahman Badhan | SC-01: Field Survey and Weed Detection using a Drone| | Before Christmas |
-| Oyemade Oluwasholape Daniel | SC-02: Task Coordination and Weed Removal | | Before Christmas |
-| Md Arman Zaid Efty | SC-03: Communication Failure | | Before Christmas |
+|Sadim Rahman Badhan | SC-01: Field Survey and Weed Detection using a Drone (Uppaal, sysml)| 23 Nov 2026 | Before Christmas |
+| Oyemade Oluwasholape Daniel | SC-02: Task Coordination and Weed Removal | 20 Nov 2026 | Before Christmas |
+| Md Arman Zaid Efty | SC-03: Communication Failure | 20 Nov 2026 | Before Christmas |
+
+
+## Task 3: Auto Labelling/Segmentation 
+
+**Official deadline:** November 30th, according to the ASB lab instructions.
+
+| Name | Scenario / assigned work | Date completed | Deadline |
+| --- | --- | --- | --- |
+|Sadim Rahman Badhan | |  | 30 Nov 2026 |
+| Oyemade Oluwasholape Daniel |  |  | 30 Nov 2026 |
+| Md Arman Zaid Efty |  |  | 30 Nov 2026 |
 
 
 *Add each team member’s scenario-based work and completion date when confirmed.*
