@@ -2,33 +2,25 @@
 
 Team repository for the **Autonomous Systems B (ASB)** precision-farming project at Hochschule Hamm-Lippstadt.
 
-The project explores autonomous systems in precision agriculture. The repository contains field-image samples, crop/weed annotation data, annotation-tool exports, comparison artefacts, course notebooks, and project documentation.
+The project explores autonomous systems in precision agriculture. This repository contains field-image samples, crop/weed annotation data, annotation exports, coursework notebooks, research, modelling and project documentation.
 
 ## Project areas
 
-| Area | Description |
+| Area | Contents |
 | --- | --- |
-| Field data | Sample agricultural images and associated manifests |
-| Image annotation | Crop and weed annotations produced with CVAT and Label Studio |
-| Annotation analysis | Visual comparisons of annotation sets |
-| Research and coursework | ADAS lab documentation, research references, and course notebooks |
+| `data/` | Field-image samples, annotation samples, and shared data. |
+| `documentation/` | Lab guides, task log, research references, project management and Gantt. |
+| `experiments/` | Annotation exports and comparison artefacts. |
+| `notebooks/` | Coursework and analysis notebooks. |
+| `utils/` | Reusable analysis tools. |
 
-## Repository structure
+## Project tracking
 
-| Path | Contents |
-| --- | --- |
-| `data/` | Field-image samples, individual annotation examples, and shared annotation sets. |
-| `documentation/` | ADAS Lab 02 team guide, task log, and research paper. |
-| `experiments/` | Selected CVAT and Label Studio exports, plus annotation comparison images. |
-| `notebooks/` | Updated ADAS Lab 01 notebook and notebook documentation. |
-| `utils/` | Python utility for comparing annotation masks and its dependencies. |
-| `contribution.md` | Repository contribution workflow. |
-| `LICENSE` | Repository licensing information. |
+- [Task log](documentation/TASK_LOG.md)
+- [Project Gantt](documentation/project_management/GANTT.md)
 
-## Contributors
+The Gantt is automatically regenerated from the task log, milestone planning file, and recent commit activity through GitHub Actions.
 
-GitHub accounts that have submitted pull requests to this repository:
+## Contribution
 
-- [@Azefty](https://github.com/Azefty)
-- [@SamRB-dev](https://github.com/SamRB-dev)
-- [@Oluwasholape](https://github.com/Oluwasholape)
+See [contribution.md](contribution.md).
