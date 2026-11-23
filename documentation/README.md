@@ -1,11 +1,12 @@
 # Documentation
 
-Project guides, planning records, and reference material for Precision Farming.
+Documentation index for the Precision Farming / Autonomous Systems B project.
 
 ## Contents
 
-| File or directory | Purpose |
-| --- | --- |
-| [ADAS_Lab_02_Team_Guide.md](ADAS_Lab_02_Team_Guide.md) | ADAS Lab 02 requirements, work packages, milestones, and validation/verification checklists. |
-| [TASK_LOG.md](TASK_LOG.md) | Team task assignments and deadlines. |
-| [papers/](papers/) | Research reference paper. |
+- [ADAS Lab 02 scenario guide](ADAS_Lab02_Updated_Scenario_Guide.md) — system baseline, scenarios, requirements and modelling guidance.
+- [Task log](TASK_LOG.md) — recorded team assignments and dates.
+- [System modelling](system_modelling/README.md) — requirements and scenario diagram/model index.
+- [UPPAAL models](system_modelling/uppaal/README.md) — timed-system verification models and traces.
+- [Project management](project_management/README.md) — schedule, Gantt and generator.
+- [Research papers](papers/README.md) — reference literature.
