@@ -12,6 +12,9 @@
 | Work package C: `annot_list_2`, annotation comparison table, individual annotation samples | Md Arman Zaid Efty | 2026-10-29 | 2026-10-29 | done | Task log |
 | Individual annotation samples | Oyemade Oluwasholape Daniel | 2026-11-01 | 2026-11-01 | done | Task log |
 | **Work Package D:** Dataset validation notebook, class-ID mask conversion, validation results, class distribution and source recording tables, segmentation overlays, dataset manifest, and dataset documentation(SugarBeet_WorkPackageD_Audit_DRAFT.zip). | Md Arman Zaid Efty | 2026-11-06 | 2026-11-06 | done | Task log |
+| SC-01: Field Survey and Weed Detection using a Drone (Uppaal, sysml) | Sadim Rahman Badhan | 2026-11-23 | 2026-11-23 | done | Task log |
+| SC-02: Task Coordination and Weed Removal | Oyemade Oluwasholape Daniel | 2026-11-20 | 2026-11-20 | done | Task log |
+| SC-03: Communication Failure | Md Arman Zaid Efty | 2026-11-20 | 2026-11-20 | done | Task log |
 | SC-01: Field Survey and Weed Detection using a Drone | Sadim Rahman Badhan | 2026-11-23 | 2026-11-23 | evidence | Commit evidence on 23 Nov; completion date not confirmed in task log |
 | SC-02: Task Coordination and Weed Removal | Oyemade Oluwasholape Daniel | 2026-11-12 | 2026-11-20 | evidence | Scenario-model/UPPAAL commit evidence; completion date not confirmed in task log |
 | SC-03: Communication Failure | Md Arman Zaid Efty | 2026-11-09 | 2026-11-12 | evidence | Scenario-model/UPPAAL commit evidence; completion date not confirmed in task log |
@@ -37,6 +40,9 @@ gantt
     Work package C - `annot_list_2`, annotation comparison  (Md Arman Zaid Efty) :done, 2026-10-29, 2026-10-29
     Individual annotation samples (Oyemade Oluwasholape Daniel) :done, 2026-11-01, 2026-11-01
     **Work Package D -** Dataset validation notebook, class (Md Arman Zaid Efty) :done, 2026-11-06, 2026-11-06
+    SC-01 - Field Survey and Weed Detection using a Drone ( (Sadim Rahman Badhan) :done, 2026-11-23, 2026-11-23
+    SC-02 - Task Coordination and Weed Removal (Oyemade Oluwasholape Daniel) :done, 2026-11-20, 2026-11-20
+    SC-03 - Communication Failure (Md Arman Zaid Efty) :done, 2026-11-20, 2026-11-20
     SC-01 - Field Survey and Weed Detection using a Drone (Sadim Rahman Badhan) :2026-11-23, 2026-11-23
     SC-02 - Task Coordination and Weed Removal (Oyemade Oluwasholape Daniel) :2026-11-12, 2026-11-20
     SC-03 - Communication Failure (Md Arman Zaid Efty) :2026-11-09, 2026-11-12
@@ -53,6 +59,9 @@ gantt
 
 ## Recent commit activity
 
+- 2026-11-23 [982bc46](https://github.com/SamRB-dev/PrecisionFarming/commit/982bc464be803fa2453e8810e296bf3cb5b26d66) — Fix formatting in task log for consistent spacing
+- 2026-11-23 [997d220](https://github.com/SamRB-dev/PrecisionFarming/commit/997d220398c02be02031034b329049d2ccb4e268) — Update task log with completed dates and add new task section for auto labelling/segmentation
+- 2026-11-23 [a4941b7](https://github.com/SamRB-dev/PrecisionFarming/commit/a4941b70a0bfccb6c07bce1db2b2c1c79f68ebaf) — chore: refresh project Gantt
 - 2026-11-23 [94ba674](https://github.com/SamRB-dev/PrecisionFarming/commit/94ba67446439263beb111c965fd2f034cceaa7bf) — Clarify Gantt evidence and contributor attribution
 - 2026-11-23 [6eb08c4](https://github.com/SamRB-dev/PrecisionFarming/commit/6eb08c46ae0eaebda8d2acfaf3d68cb1a3abdd8b) — Fix Gantt table formatting and display contributor names
 - 2026-11-23 [5da837b](https://github.com/SamRB-dev/PrecisionFarming/commit/5da837b07eec9efa24ea0f57d076d3c872b8436d) — chore: refresh project Gantt
@@ -70,9 +79,6 @@ gantt
 - 2026-11-23 [451536f](https://github.com/SamRB-dev/PrecisionFarming/commit/451536f4de7777dfe37545b177eb2f9c1bbd1181) — Merge branch 'main' of https://github.com/SamRB-dev/PrecisionFarming
 - 2026-11-23 [e4dba09](https://github.com/SamRB-dev/PrecisionFarming/commit/e4dba09211ca2e531da12f779cebd0ea230c2768) — Refactor DroneSurvey UPPAAL model and add simulation results
 - 2026-11-22 [2bbfe4b](https://github.com/SamRB-dev/PrecisionFarming/commit/2bbfe4b4839bdb111c5c2daa3c325dab1ffac251) — Updated original images
-- 2026-11-20 [2807fbe](https://github.com/SamRB-dev/PrecisionFarming/commit/2807fbe940361195d551626ea86db534036b3820) — Updated activity diagram for scenario 2
-- 2026-11-20 [952b546](https://github.com/SamRB-dev/PrecisionFarming/commit/952b546b09e14a6ceb0c84c3df9422e60a017fb2) — Merge pull request #8 from SamRB-dev/scenario-2-tractor
-- 2026-11-20 [78e385a](https://github.com/SamRB-dev/PrecisionFarming/commit/78e385a6503025e0b403fe54f0277340723b93e8) — Add verified Scenario 2 UPPAAL model
 
 ## Evidence and assumptions
 - Task 1 owners and completion dates are taken from documentation/TASK_LOG.md.
