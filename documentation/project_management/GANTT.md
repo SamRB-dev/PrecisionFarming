@@ -15,6 +15,7 @@
 | SC-01: Field Survey and Weed Detection using a Drone (Uppaal, sysml) | Sadim Rahman Badhan | 2026-11-23 | 2026-11-23 | done | Task 2: Scenario-based task — Task log |
 | SC-02: Task Coordination and Weed Removal | Oyemade Oluwasholape Daniel | 2026-11-20 | 2026-11-20 | done | Task 2: Scenario-based task — Task log |
 | SC-03: Communication Failure | Md Arman Zaid Efty | 2026-11-20 | 2026-11-20 | done | Task 2: Scenario-based task — Task log |
+| Dataset compilation and additional annotation | Sadim Rahman | 2026-11-24 | 2026-11-24 | done | Task 3: Auto Labelling/Segmentation — Task log |
 | Cross-scenario integration review and traceability | Team | 2026-11-24 | 2026-11-30 | planned | Planning estimate |
 | Use-case completeness validation and verification | Team | 2026-11-24 | 2026-11-30 | planned | Planning estimate |
 | Automated labelling and learning pipeline | Team | 2026-11-24 | 2026-12-11 | planned | Professor milestone planning |
@@ -40,6 +41,7 @@ gantt
     SC-01 Field Survey and Weed Detection using a Drone Uppaal sysml - Sad :done, 2026-11-23, 2026-11-23
     SC-02 Task Coordination and Weed Removal - Oyemade Oluwasholape Daniel :done, 2026-11-20, 2026-11-20
     SC-03 Communication Failure - Md Arman Zaid Efty :done, 2026-11-20, 2026-11-20
+    Dataset compilation and additional annotation - Sadim Rahman :done, 2026-11-24, 2026-11-24
     Cross-scenario integration review and traceability - Team :2026-11-24, 2026-11-30
     Use-case completeness validation and verification - Team :2026-11-24, 2026-11-30
     Automated labelling and learning pipeline - Team :2026-11-24, 2026-12-11
@@ -53,6 +55,8 @@ gantt
 
 ## Recent commit activity
 
+- 2026-11-24 [16a8e8d](https://github.com/SamRB-dev/PrecisionFarming/commit/16a8e8dd043e5f5b28e594161a873b23b7f2f0c0) — Record dataset compilation and additional annotation completion
+- 2026-11-24 [95e4ecd](https://github.com/SamRB-dev/PrecisionFarming/commit/95e4ecd24dea7490e543b820b6bb4a20b153d4c0) — chore: refresh project Gantt
 - 2026-11-24 [32639aa](https://github.com/SamRB-dev/PrecisionFarming/commit/32639aa758bf8ce1b0999000c9c16ce09a849102) — Assign additional annotation to Sadim Rahman
 - 2026-11-24 [40d2f76](https://github.com/SamRB-dev/PrecisionFarming/commit/40d2f76b8af68f99fdba3a59d2d1dbdc64b5c2dd) — Update binary files in individual and mutual annotation samples
 - 2026-11-24 [b1e5814](https://github.com/SamRB-dev/PrecisionFarming/commit/b1e581468560ab8f389ce3eba4bd7ca21c671c3c) — Add LFS tracking for new dataset zip files and update .gitattributes
@@ -63,8 +67,6 @@ gantt
 - 2026-11-23 [c3d1e2d](https://github.com/SamRB-dev/PrecisionFarming/commit/c3d1e2dab3d443e173cc599ad0c50997c76300c5) — chore: refresh project Gantt
 - 2026-11-23 [982bc46](https://github.com/SamRB-dev/PrecisionFarming/commit/982bc464be803fa2453e8810e296bf3cb5b26d66) — Fix formatting in task log for consistent spacing
 - 2026-11-23 [997d220](https://github.com/SamRB-dev/PrecisionFarming/commit/997d220398c02be02031034b329049d2ccb4e268) — Update task log with completed dates and add new task section for auto labelling/segmentation
-- 2026-11-23 [a4941b7](https://github.com/SamRB-dev/PrecisionFarming/commit/a4941b70a0bfccb6c07bce1db2b2c1c79f68ebaf) — chore: refresh project Gantt
-- 2026-11-23 [94ba674](https://github.com/SamRB-dev/PrecisionFarming/commit/94ba67446439263beb111c965fd2f034cceaa7bf) — Clarify Gantt evidence and contributor attribution
 
 ## Notes and evidence
 - Completed entries and contributor names are parsed from the task tables in documentation/TASK_LOG.md.
