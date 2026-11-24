@@ -31,7 +31,7 @@ This log records completed work and deadlines for the ASB project. The **Date co
 
 | Name | Scenario / assigned work | Date completed | Deadline |
 | --- | --- | --- | --- |
-| Sadim Rahman | Additional annotation |  | 30 Nov 2026 |
+| Sadim Rahman | Dataset compilation and additional annotation | 24 Nov 2026 | 30 Nov 2026 |
 | Oyemade Oluwasholape Daniel |  |  | 30 Nov 2026 |
 | Md Arman Zaid Efty |  |  | 30 Nov 2026 |
 
