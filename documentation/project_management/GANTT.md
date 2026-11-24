@@ -53,18 +53,18 @@ gantt
 
 ## Recent commit activity
 
+- 2026-11-24 [32639aa](https://github.com/SamRB-dev/PrecisionFarming/commit/32639aa758bf8ce1b0999000c9c16ce09a849102) — Assign additional annotation to Sadim Rahman
+- 2026-11-24 [40d2f76](https://github.com/SamRB-dev/PrecisionFarming/commit/40d2f76b8af68f99fdba3a59d2d1dbdc64b5c2dd) — Update binary files in individual and mutual annotation samples
+- 2026-11-24 [b1e5814](https://github.com/SamRB-dev/PrecisionFarming/commit/b1e581468560ab8f389ce3eba4bd7ca21c671c3c) — Add LFS tracking for new dataset zip files and update .gitattributes
+- 2026-11-24 [253abad](https://github.com/SamRB-dev/PrecisionFarming/commit/253abad0e45f2230e698d509e8b1b653a0ec4e8b) — Add dataset builder and exclude large dataset archives
+- 2026-11-24 [3e423f2](https://github.com/SamRB-dev/PrecisionFarming/commit/3e423f2625dc80687a65d5ef4c79ec271ccec2a2) — Add original.zip file for DJI_0104 annotation samples
+- 2026-11-23 [1688955](https://github.com/SamRB-dev/PrecisionFarming/commit/16889552e5b5144ff3fe7b300a8afe4b13509eb7) — chore: refresh project Gantt
 - 2026-11-23 [ebb5980](https://github.com/SamRB-dev/PrecisionFarming/commit/ebb5980e439eb125b93212e677f25cd5f288a8a4) — Remove duplicate scenario rows from Gantt generator
 - 2026-11-23 [c3d1e2d](https://github.com/SamRB-dev/PrecisionFarming/commit/c3d1e2dab3d443e173cc599ad0c50997c76300c5) — chore: refresh project Gantt
 - 2026-11-23 [982bc46](https://github.com/SamRB-dev/PrecisionFarming/commit/982bc464be803fa2453e8810e296bf3cb5b26d66) — Fix formatting in task log for consistent spacing
 - 2026-11-23 [997d220](https://github.com/SamRB-dev/PrecisionFarming/commit/997d220398c02be02031034b329049d2ccb4e268) — Update task log with completed dates and add new task section for auto labelling/segmentation
 - 2026-11-23 [a4941b7](https://github.com/SamRB-dev/PrecisionFarming/commit/a4941b70a0bfccb6c07bce1db2b2c1c79f68ebaf) — chore: refresh project Gantt
 - 2026-11-23 [94ba674](https://github.com/SamRB-dev/PrecisionFarming/commit/94ba67446439263beb111c965fd2f034cceaa7bf) — Clarify Gantt evidence and contributor attribution
-- 2026-11-23 [6eb08c4](https://github.com/SamRB-dev/PrecisionFarming/commit/6eb08c46ae0eaebda8d2acfaf3d68cb1a3abdd8b) — Fix Gantt table formatting and display contributor names
-- 2026-11-23 [5da837b](https://github.com/SamRB-dev/PrecisionFarming/commit/5da837b07eec9efa24ea0f57d076d3c872b8436d) — chore: refresh project Gantt
-- 2026-11-23 [c80c863](https://github.com/SamRB-dev/PrecisionFarming/commit/c80c863759fae6564b432f8ce5415f8d5f282525) — Fix Gantt workflow push race with retry and rebase
-- 2026-11-23 [e2e79b8](https://github.com/SamRB-dev/PrecisionFarming/commit/e2e79b8e80d2fb78b216a486e459568ed14873e4) — Normalize scenario diagram filenames
-- 2026-11-23 [84e6842](https://github.com/SamRB-dev/PrecisionFarming/commit/84e6842d676882d8e3cbf1c89d9f261b3c3ffde5) — Standardize scenario modelling documentation and show Gantt in README
-- 2026-11-23 [06bfb09](https://github.com/SamRB-dev/PrecisionFarming/commit/06bfb09fe28d3100b3ca14e5cc0526dad100f532) — Add Gantt placeholder for automated generation
 
 ## Notes and evidence
 - Completed entries and contributor names are parsed from the task tables in documentation/TASK_LOG.md.
