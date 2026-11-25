@@ -55,6 +55,7 @@ gantt
 
 ## Recent commit activity
 
+- 2026-11-24 [a8044a2](https://github.com/SamRB-dev/PrecisionFarming/commit/a8044a2e1fc43eebee21619b4b99a1e1169a0e14) — chore: refresh project Gantt
 - 2026-11-24 [44a49e4](https://github.com/SamRB-dev/PrecisionFarming/commit/44a49e42041cdf25dd97a4b6c0976a3cdb69620e) — chore: refresh project Gantt
 - 2026-11-24 [16a8e8d](https://github.com/SamRB-dev/PrecisionFarming/commit/16a8e8dd043e5f5b28e594161a873b23b7f2f0c0) — Record dataset compilation and additional annotation completion
 - 2026-11-24 [95e4ecd](https://github.com/SamRB-dev/PrecisionFarming/commit/95e4ecd24dea7490e543b820b6bb4a20b153d4c0) — chore: refresh project Gantt
@@ -66,7 +67,6 @@ gantt
 - 2026-11-23 [1688955](https://github.com/SamRB-dev/PrecisionFarming/commit/16889552e5b5144ff3fe7b300a8afe4b13509eb7) — chore: refresh project Gantt
 - 2026-11-23 [ebb5980](https://github.com/SamRB-dev/PrecisionFarming/commit/ebb5980e439eb125b93212e677f25cd5f288a8a4) — Remove duplicate scenario rows from Gantt generator
 - 2026-11-23 [c3d1e2d](https://github.com/SamRB-dev/PrecisionFarming/commit/c3d1e2dab3d443e173cc599ad0c50997c76300c5) — chore: refresh project Gantt
-- 2026-11-23 [982bc46](https://github.com/SamRB-dev/PrecisionFarming/commit/982bc464be803fa2453e8810e296bf3cb5b26d66) — Fix formatting in task log for consistent spacing
 
 ## Notes and evidence
 - Completed entries and contributor names are parsed from the task tables in documentation/TASK_LOG.md.
