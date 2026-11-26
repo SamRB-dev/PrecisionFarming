@@ -33,7 +33,7 @@ This log records completed work and deadlines for the ASB project. The **Date co
 | --- | --- | --- | --- |
 | Sadim Rahman | Dataset compilation and additional annotation | 24 Nov 2026 | 30 Nov 2026 |
 | Oyemade Oluwasholape Daniel |  |  | 30 Nov 2026 |
-| Md Arman Zaid Efty |  |  | 30 Nov 2026 |
+| Md Arman Zaid Efty | Developed and evaluated two U-Net models (97- and 102-image datasets) for automated sugar beet and weed segmentation, including performance comparison and annotation quality analysis. | 26 Nov 2026 | 30 Nov 2026 |
 
 
 *Add each team member’s scenario-based work and completion date when confirmed.*
