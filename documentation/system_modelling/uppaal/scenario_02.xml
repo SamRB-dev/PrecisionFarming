@@ -15,6 +15,10 @@ bool moving = false;
 bool actuatorOn = false;
 bool targetValid = false;
 bool targetVerified = false;
+// Simplified obstacle sensor: true while the tractor must wait.
+bool obstaclePresent = false;
+// Counts occasions on which navigation resumed after an obstacle.
+int[0,20] obstacleResumptions = 0;
 // 0 = not reported, 1 = completed, 2 = failed.
 int[0,2] taskResult = 0;
 int[0,20] recordedTasks = 0;
@@ -60,8 +64,8 @@ int[0,20] recordedTasks = 0;
 		<transition id="id9">
 			<source ref="id4"/>
 			<target ref="id0"/>
-			<nail x="187" y="561"/>
-			<nail x="187" y="0"/>
+			<nail x="210" y="620"/>
+			<nail x="210" y="-30"/>
 		</transition>
 	</template>
 	<template>
@@ -97,59 +101,77 @@ clock removeClock;</declaration>
 		<location id="id17" x="-100" y="920">
 			<name x="-85" y="886">ReportOutcome</name>
 		</location>
+		<location id="id18" x="-490" y="270">
+			<name x="-555" y="236">WaitingForClearPath</name>
+		</location>
 		<init ref="id10"/>
-		<transition id="id18">
+		<transition id="id19">
 			<source ref="id10"/>
 			<target ref="id11"/>
 			<label kind="synchronisation" x="-80" y="53">assign_task?</label>
-			<label kind="assignment" x="-80" y="71">targetVerified = false, actuatorOn = false</label>
-		</transition>
-		<transition id="id19">
-			<source ref="id11"/>
-			<target ref="id12"/>
-			<label kind="assignment" x="-80" y="188">moving = true, navClock = 0</label>
+			<label kind="assignment" x="-80" y="71">targetVerified = false, actuatorOn = false, obstaclePresent = false</label>
 		</transition>
 		<transition id="id20">
+			<source ref="id11"/>
+			<target ref="id12"/>
+			<label kind="assignment" x="-85" y="195">moving = true, navClock = 0</label>
+		</transition>
+		<transition id="id21">
 			<source ref="id12"/>
 			<target ref="id13"/>
 			<label kind="select" x="-80" y="338">valid : int[0,1]</label>
 			<label kind="guard" x="-80" y="356">navClock &gt;= NAV_MIN</label>
 			<label kind="assignment" x="-80" y="374">moving = false, targetValid = (valid == 1)</label>
 		</transition>
-		<transition id="id21">
+		<transition id="id22">
 			<source ref="id13"/>
 			<target ref="id14"/>
 			<label kind="guard" x="-205" y="498">targetValid &amp;&amp; !moving</label>
 			<label kind="assignment" x="-205" y="516">targetVerified = true, actuatorOn = true, removeClock = 0</label>
 		</transition>
-		<transition id="id22">
+		<transition id="id23">
 			<source ref="id13"/>
 			<target ref="id16"/>
 			<label kind="guard" x="55" y="578">!targetValid</label>
 			<label kind="assignment" x="55" y="596">targetVerified = false, actuatorOn = false</label>
 		</transition>
-		<transition id="id23">
+		<transition id="id24">
 			<source ref="id14"/>
 			<target ref="id15"/>
 			<label kind="guard" x="-330" y="658">removeClock &gt;= REMOVE_MIN</label>
 			<label kind="assignment" x="-330" y="676">actuatorOn = false</label>
 		</transition>
-		<transition id="id24">
+		<transition id="id25">
 			<source ref="id15"/>
 			<target ref="id17"/>
 			<label kind="assignment" x="-205" y="823">taskResult = 1</label>
 		</transition>
-		<transition id="id25">
+		<transition id="id26">
 			<source ref="id16"/>
 			<target ref="id17"/>
 			<label kind="assignment" x="55" y="823">taskResult = 2</label>
 		</transition>
-		<transition id="id26">
+		<transition id="id27">
 			<source ref="id17"/>
 			<target ref="id10"/>
 			<label kind="synchronisation" x="-80" y="448">report_result!</label>
 			<nail x="470" y="920"/>
 			<nail x="470" y="-60"/>
+		</transition>
+		<transition id="id28">
+			<source ref="id12"/>
+			<target ref="id18"/>
+			<label kind="assignment" x="-460" y="180">obstaclePresent = true, moving = false, actuatorOn = false</label>
+			<nail x="-100" y="210"/>
+			<nail x="-490" y="210"/>
+		</transition>
+		<transition id="id29">
+			<source ref="id18"/>
+			<target ref="id12"/>
+			<label kind="assignment" x="-748" y="340">obstaclePresent = false, moving = true, navClock = 0,
+obstacleResumptions = obstacleResumptions &lt; 20 ? obstacleResumptions + 1 : 20</label>
+			<nail x="-490" y="340"/>
+			<nail x="-100" y="340"/>
 		</transition>
 	</template>
 	<system>Station = ControlStation();
@@ -160,37 +182,67 @@ system Station, Vehicle;
 		<query>
 			<formula>A[] not deadlock</formula>
 			<comment>No deadlock in the standalone model.</comment>
-			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:03 +0100">
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:08:49 +0100">
 			</result>
 		</query>
 		<query>
 			<formula>A[] !(moving &amp;&amp; actuatorOn)</formula>
 			<comment>Tool interlock: never activate weed removal while moving.</comment>
-			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:06 +0100">
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:08:52 +0100">
 			</result>
 		</query>
 		<query>
 			<formula>A[] (Vehicle.RemovingWeeds imply (targetVerified &amp;&amp; !moving &amp;&amp; actuatorOn))</formula>
 			<comment>Removal only after target verification while stationary.</comment>
-			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:08 +0100">
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:08:54 +0100">
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; (Vehicle.ReportOutcome &amp;&amp; taskResult == 1)</formula>
 			<comment>A successful task result is reachable.</comment>
-			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:10 +0100">
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:08:57 +0100">
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; (Vehicle.ReportOutcome &amp;&amp; taskResult == 2)</formula>
 			<comment>An unsuccessful target verification result is reachable.</comment>
-			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:13 +0100">
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:09:03 +0100">
 			</result>
 		</query>
 		<query>
 			<formula>E&lt;&gt; Station.RecordOutcome</formula>
 			<comment>The Control Station can receive and record a task outcome.</comment>
-			<result outcome="success" type="quality" timestamp="2026-11-20 03:17:15 +0100">
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:09:06 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (obstaclePresent imply (!moving &amp;&amp; !actuatorOn))</formula>
+			<comment>Obstacle protection: the tractor stops and the mechanism remains off during an obstacle.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:09:10 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (Vehicle.WaitingForClearPath imply (obstaclePresent &amp;&amp; !moving &amp;&amp; !actuatorOn))</formula>
+			<comment>While waiting for a clear path, tractor motion and removal stay disabled.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:09:13 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; Vehicle.WaitingForClearPath</formula>
+			<comment>An obstacle can be encountered during navigation.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:09:16 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>E&lt;&gt; obstacleResumptions &gt; 0</formula>
+			<comment>The tractor can resume navigating after the obstacle clears.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:09:19 +0100">
+			</result>
+		</query>
+		<query>
+			<formula>A[] (Vehicle.Navigating imply (moving &amp;&amp; !obstaclePresent))</formula>
+			<comment>Navigation requires movement and no active obstacle.</comment>
+			<result outcome="success" type="quality" timestamp="2026-11-20 07:09:23 +0100">
 			</result>
 		</query>
 	</queries>
