@@ -1,7 +1,7 @@
 # Use-Case Completeness Check
 
 **Project:** Autonomous Agricultural Weed-Management System  
-**Date:** 27 November 2026  
+**Date:** 26 November 2026  
 **Status:** Review completed; one point still needs to be corrected
 
 ## 1. What I checked
